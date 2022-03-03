@@ -50,21 +50,12 @@ def init_roi_params(image):
     width = image.shape[1]
 
     #Lane Parameters
-    #roi_lane_bot_left = (width // 4, height)
-    #roi_lane_bot_right = (width * 17 // 20, height)
-    #roi_lane_top_left = (width // 4 + width // 5, height * 76 // 100)
-    #roi_lane_top_right= (width * 2 // 3, height * 76 // 100)
     roi_lane_bot_left = (width // 5, height)
     roi_lane_bot_right = (width, height)
     roi_lane_top_left = (width * 2 // 5, height * 66 // 100)
     roi_lane_top_right= (width * 17 // 20, height * 66 // 100)
 
     #Car Parameters
-    #roi_car_bot_left = (width * 1//2, height)
-    #roi_car_bot_right = (width * 7//10 , height)
-    #roi_car_top_left = (width * 1//2, height * 6 // 10)
-    #roi_car_top_right = (width * 7//10, height * 6 // 10)
-
     roi_car_bot_left = (width * 1 // 2, height * 8 // 10)
     roi_car_bot_right = (width * 3 // 4, height * 8 // 10)
     roi_car_top_left = (width * 1 // 2, height * 5 // 10)
@@ -112,9 +103,6 @@ def cars_overlap_roi(image,cars):
         right_edge_x = x+w
         top_edge_y = y
         bot_edge_y = y+h
-
-        #print("comparing:",left_edge_x,right_edge_x,top_edge_y,bot_edge_y)
-        #print("to:",roi_left_edge_x,roi_right_edge_x,roi_top_edge_y,roi_bot_edge_y)
 
         if ((left_edge_x > roi_left_edge_x) and  (left_edge_x < roi_right_edge_x) and
             (top_edge_y > roi_top_edge_y) and (top_edge_y < roi_bot_edge_y) and
@@ -234,34 +222,16 @@ def calculate_slope_intercept(image, lines):
                 print("Left line, slope:", l_iter[0], "intercept:", l_iter[1])
             for r_iter in right_fit:
                 print("Right line, slope:", r_iter[0], "intercept:", r_iter[1])
-
-        #left_fit_average = np.average(left_fit, axis=0)
-        #left_line = create_coordinates(image, left_fit_average)
-        #right_fit_average = np.average(right_fit, axis=0)
-        #right_line = create_coordinates(image, right_fit_average)
-
+                
         left_fit_pct = np.percentile(left_fit, q=50, axis=0)
         right_fit_pct = np.percentile(right_fit, q=50, axis=0)
 
 
         # Store the values for next time
         record_prev_line_values(left_fit_pct,right_fit_pct)
-        #if DEBUG_LINE_CALCS:
-         #   print("LEFT")
-         #   print("AVERAGE METHOD: SLOPE->",left_fit_average[0],
-         #         " INTERCEPT->",left_fit_average[1])
-         #   print("PCT METHOD: SLOPE->", left_fit_pct[0],
-         #         " INTERCEPT->", left_fit_pct[1])
-         #   print("RIGHT")
-         #   print("AVERAGE METHOD: SLOPE->", right_fit_average[0],
-         #         " INTERCEPT->", right_fit_average[1])
-         #   print("PCT METHOD: SLOPE->", right_fit_pct[0],
-         #         " INTERCEPT->", right_fit_pct[1])
-        #return np.array([left_line_pct, right_line_pct])
         return np.array([left_fit_pct, right_fit_pct])
     else:
         return None
-        # np.array([np.array([0, 0, 0, 0]),np.array([0, 0, 0, 0])])
 
 # Displays lines
 # input: image, lines
@@ -273,7 +243,6 @@ def display_lines(image,lines):
         for slope, intercept in lines:
 
             line_coordinates = create_coordinates(image, (slope, intercept))
-            # print("x1:",x1,"y1:",y1,"x2:",x2,"y2:",y2)
             cv2.line(line_image, (line_coordinates[0], line_coordinates[1]), (line_coordinates[2], line_coordinates[3]),
                      (255, 0, 0), 10)
     return line_image
