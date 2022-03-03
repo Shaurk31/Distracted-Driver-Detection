@@ -8,4 +8,4 @@
    *                        - Straight clip: https://youtu.be/upYxrqMvYAM
    *                        - Distracted clip: https://youtu.be/xejhEGlisRk
   * Change the video path in the MainCode.py file to the respective path.
-  * Run the code!
+  * Run the code! Output example: https://youtu.be/kIjRUuDr6XQ
