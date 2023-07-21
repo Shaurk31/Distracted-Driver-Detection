@@ -1,6 +1,6 @@
 # Distracted-Driver-Detection-Project-
 
-### Directions:
+### Testing:
   * Download the MainCode.py file and import it into your IDE
   * Download the "cars_good" car classifier XML file and save it to a specific path. 
   * Change the car classifier path in the MainCode.py file to the respective path.
