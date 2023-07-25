@@ -1,4 +1,4 @@
-# Distracted-Driver-Detection-Project-
+# Detecting Distracted Drivers
 
 ### Testing:
   * Download the MainCode.py file and import it into your IDE
