@@ -23,7 +23,9 @@ pip install sympy
   * Change the video path in the MainCode.py file to the respective path.
   * Run the code! 
   
-  
+  ### Awards (Synopsys Science Fair 2022):
 
+  * Honorable Mention Award, Physical Science and Engineering Category 
+  * Bob Zeidman Award Third Place
 
 
