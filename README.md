@@ -25,7 +25,7 @@ pip install sympy
   
   ### Awards (Synopsys Science Fair 2022):
 
-  * Honorable Mention Award, Physical Science and Engineering Category 
-  * Bob Zeidman Award Third Place
+  * [Honorable Mention Award, Physical Science and Engineering Category](https://www.science-fair.org/database/project_awards.php?school_year=2122&all&special_order)
+  * [Bob Zeidman Award Third Place](https://www.linkedin.com/pulse/winners-announced-eighth-annual-zeidman-awards-bob-zeidman/)
 
 
